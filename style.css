@@ -1,0 +1,232 @@
+/* SISTEMA DE COLOR & TIPOGRAFÍA */
+:root {
+    --bg-color: #FDFDFD; /* Warm Off White */
+    --text-primary: #111111; /* Soft Charcoal Black */
+    --text-secondary: #6E6A66; /* Warm Gray */
+    --accent-navy: #1D2630;
+    --accent-red: #6E1F1F;
+    
+    /* Nota: Se usa un fallback de sans-serif limpia. 
+       Para usar Neue Montreal, deberás subir los archivos de la fuente a tu repositorio GitHub. */
+    --font-primary: 'Neue Montreal', Helvetica, Arial, sans-serif; 
+    --font-mono: 'IBM Plex Mono', monospace;
+    
+    --section-padding: 140px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: var(--font-primary);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+/* TIPOGRAFÍA & JERARQUÍA */
+.hero-title {
+    font-size: clamp(64px, 9vw, 140px);
+    font-weight: 500;
+    line-height: 0.95;
+    letter-spacing: -0.06em;
+}
+
+.section-title {
+    font-size: clamp(32px, 5vw, 72px);
+    font-weight: 500;
+    letter-spacing: -0.04em;
+}
+
+.body-text {
+    font-size: 16px;
+    line-height: 1.7;
+    font-weight: 400;
+    color: var(--text-secondary);
+}
+
+.micro-text, .mono-text {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+}
+
+/* NAVBAR */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 32px 48px;
+    z-index: 100;
+    mix-blend-mode: difference;
+    color: #FDFDFD;
+    transition: padding 0.4s ease;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-family: var(--font-primary);
+    font-weight: 500;
+    text-decoration: none;
+    color: inherit;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: inherit;
+    margin-left: 40px;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--accent-red);
+}
+
+/* GRID SYSTEM */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding-inline: 48px;
+}
+
+.grid-col-left {
+    grid-column: 1 / 7;
+}
+
+.grid-col-right {
+    grid-column: 7 / 12;
+    padding-top: 20px;
+}
+
+/* HERO SECTION */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-inline: 48px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+.hero-subtitle {
+    margin-top: 32px;
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--text-secondary);
+    max-width: 500px;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+    filter: grayscale(20%) contrast(110%);
+}
+
+/* SECTIONS ESPACIADO */
+.editorial-section, .selected-works {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+}
+
+.container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding-inline: 48px;
+}
+
+/* ANIMACIONES (MOTION SYSTEM) */
+.cinematic-fade {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cinematic-fade.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* FOOTER */
+.footer {
+    padding: 80px 48px;
+    border-top: 1px solid #E6E1DA; /* Soft Beige */
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.footer-right a {
+    display: block;
+    text-decoration: none;
+    color: var(--text-primary);
+    font-size: 14px;
+    margin-top: 12px;
+    text-align: right;
+}
+
+/* MOBILE RESPONSIVE (4 columns) */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(4, 1fr);
+        padding-inline: 20px;
+    }
+    .grid-col-left, .grid-col-right {
+        grid-column: 1 / -1;
+    }
+    .hero, .container, .footer {
+        padding-inline: 20px;
+    }
+    .hero-background {
+        width: 100%;
+        opacity: 0.15;
+    }
+    .navbar {
+        padding: 20px;
+        mix-blend-mode: normal;
+        color: var(--text-primary);
+    }
+    .nav-links {
+        display: none; /* Idealmente reemplazar con un menú hamburguesa minimalista */
+    }
+}
