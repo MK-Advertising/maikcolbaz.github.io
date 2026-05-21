@@ -29,4 +29,21 @@ document.addEventListener("DOMContentLoaded", () => {
             if(window.innerWidth <= 768) navbar.style.padding = '20px 20px';
         }
     });
+    // Control del menú desplegable (Overlay) en móvil
+const menuToggle = document.querySelector('.menu-toggle');
+const navbarElement = document.querySelector('.navbar');
+
+if (menuToggle && navbarElement) {
+    menuToggle.addEventListener('click', () => {
+        // Alterna la clase para abrir o cerrar la pantalla completa
+        navbarElement.classList.toggle('menu-active');
+        
+        // Cambia el indicador de forma interactiva con estética de etiqueta
+        if (navbarElement.classList.contains('menu-active')) {
+            menuToggle.textContent = '[ Close ]';
+        } else {
+            menuToggle.textContent = '[ Menu ]';
+        }
+    });
+}
 });
