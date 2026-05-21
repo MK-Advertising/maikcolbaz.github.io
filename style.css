@@ -232,10 +232,28 @@ body {
         color: var(--text-primary);
     }
     .nav-links {
-        display: none; /* Oculta los links de escritorio en móvil */
+        display: flex; /* Oculta los links de escritorio en móvil */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: #FDFDFD; /* Warm Off White */
+        gap: 40px;
+        
+        /* ESTADO INICIAL: Invisible y desplazado hacia arriba */
+        opacity: 0;
+        pointer-events: none; /* Evita que se pueda dar clic mientras está oculto */
+        transform: translateY(-20px);
+        
+        /* Animación suave y cinemática (cubic-bezier) */
+        transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+                    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        z-index: 100;
     }
-
-    /* === NUEVOS ESTILOS PARA EL MENÚ INTERACTIVO === */
 
     /* Estilo minimalista para el botón [ Menu ] */
     .menu-toggle {
@@ -253,18 +271,9 @@ body {
 
     /* Pantalla completa que se despliega al abrir el menú */
     .navbar.menu-active .nav-links {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: #FDFDFD; /* Tu fondo Warm Off White */
-        z-index: 100;
-        gap: 40px; /* Espaciado generoso entre links */
+        opacity: 1;
+        pointer-events: auto; /* Activa los clics de nuevo */
+        transform: translateY(0);
     }
 
     /* Estilo editorial para los links dentro del menú abierto */
@@ -274,9 +283,15 @@ body {
         text-decoration: none;
         color: var(--text-primary);
         letter-spacing: -0.04em;
-        transition: color 0.3s ease;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+        transition-delay: 0.2s;
     }
-
+.navbar.menu-active .nav-links a {
+        opacity: 1;
+        transform: translateY(0);
+    }
     .navbar.menu-active .nav-links a:hover {
         color: var(--accent-red); /* Hover sutil en tu rojo editorial */
     }
