@@ -40,9 +40,9 @@ if (menuToggle && navbarElement) {
         
         // Cambia el indicador de forma interactiva con estética de etiqueta
         if (navbarElement.classList.contains('menu-active')) {
-            menuToggle.textContent = '[ Close ]';
+            menuToggle.textContent = ' Cerrar ';
         } else {
-            menuToggle.textContent = '[ Menu ]';
+            menuToggle.textContent = ' Menu ';
         }
     });
 }
