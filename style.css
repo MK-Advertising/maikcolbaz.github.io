@@ -232,6 +232,59 @@ body {
         color: var(--text-primary);
     }
     .nav-links {
-        display: none; /* Idealmente reemplazar con un menú hamburguesa minimalista */
+        display: none; /* Oculta los links de escritorio en móvil */
     }
+
+    /* === NUEVOS ESTILOS PARA EL MENÚ INTERACTIVO === */
+
+    /* Estilo minimalista para el botón [ Menu ] */
+    .menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        color: var(--text-primary); /* Usa tu Soft Charcoal Black */
+        font-family: 'IBM Plex Mono', monospace; /* Tipografía para labels */
+        font-size: 14px;
+        text-transform: uppercase;
+        cursor: pointer;
+        letter-spacing: 0.08em;
+        z-index: 101; /* Asegura que quede por encima de la imagen */
+    }
+
+    /* Pantalla completa que se despliega al abrir el menú */
+    .navbar.menu-active .nav-links {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: #FDFDFD; /* Tu fondo Warm Off White */
+        z-index: 100;
+        gap: 40px; /* Espaciado generoso entre links */
+    }
+
+    /* Estilo editorial para los links dentro del menú abierto */
+    .navbar.menu-active .nav-links a {
+        font-size: 32px; /* Tipografía oversized e impactante */
+        font-weight: 500;
+        text-decoration: none;
+        color: var(--text-primary);
+        letter-spacing: -0.04em;
+        transition: color 0.3s ease;
+    }
+
+    .navbar.menu-active .nav-links a:hover {
+        color: var(--accent-red); /* Hover sutil en tu rojo editorial */
+    }
+} /* <--- Este es el cierre del @media de la línea 237 */
+/* Ocultar el botón de menú en pantallas de escritorio */
+@media (min-width: 769px) {
+    .menu-toggle {
+        display: none;
+    }
+}
 }
