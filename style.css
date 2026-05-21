@@ -221,7 +221,9 @@ body {
     }
     .hero-background {
         width: 100%;
-        opacity: 0.15;
+        opacity: 0.35;
+        filter: grayscale(5%) contrast(115%) brightness(95%);
+        transition: opacity 0.5s ease;
     }
     .navbar {
         padding: 20px;
