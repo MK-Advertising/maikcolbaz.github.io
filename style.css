@@ -277,7 +277,7 @@ body {
     }
 
     /* Estilo editorial para los links dentro del menú abierto */
-    .navbar.menu-active .nav-links a {
+     .nav-links a {
         font-size: 32px; /* Tipografía oversized e impactante */
         font-weight: 500;
         text-decoration: none;
