@@ -208,6 +208,87 @@ body {
     text-align: right;
 }
 
+/* ==========================================
+   VISUAL STATEMENT (FULL SCREEN VIDEO)
+   ========================================== */
+.visual-statement {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end; /* Alinea el texto a la parte inferior como en tu referencia */
+    padding: 80px 48px; /* Margen de respiro para el texto */
+}
+
+.video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.statement-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Evita que el video se deforme o deje barras negras */
+    filter: grayscale(15%) contrast(110%) brightness(90%); /* Mantiene el grading cinematográfico */
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(17, 17, 17, 0.4) 0%, rgba(17, 17, 17, 0) 100%);
+    z-index: 2;
+}
+
+.statement-overlay-content {
+    position: relative;
+    z-index: 3; /* Flota por encima de la capa del video */
+    max-width: 800px;
+    color: #FDFDFD; /* Cambia a blanco puro para romper y contrastar sobre el video */
+}
+
+.statement-overlay-content .micro-text {
+    color: #E6E1DA;
+    margin-bottom: 20px;
+}
+
+.statement-title {
+    font-size: clamp(40px, 6vw, 84px); /* Tipografía masiva e impactante */
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.05em;
+    margin-bottom: 20px;
+    text-transform: none;
+}
+
+.statement-description {
+    font-size: clamp(16px, 1.8vw, 22px);
+    line-height: 1.5;
+    font-weight: 400;
+    color: #E6E1DA;
+    max-width: 600px;
+    opacity: 0.9;
+    letter-spacing: -0.02em;
+}
+
+/* Ajustes específicos para pantallas Móviles */
+@media (max-width: 768px) {
+    .visual-statement {
+        padding: 40px 20px; /* Reducción de padding para emular la proporción de la pantalla del teléfono */
+    }
+    
+    .statement-title {
+        margin-bottom: 16px;
+    }
+}
+
 /* MOBILE RESPONSIVE (4 columns) */
 @media (max-width: 768px) {
     .grid-container {
