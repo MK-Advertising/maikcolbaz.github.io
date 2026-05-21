@@ -137,7 +137,8 @@ body {
     margin-top: 32px;
     font-size: 18px;
     line-height: 1.5;
-    color: var(--text-secondary);
+    mix-blend-mode: difference;
+    color: #111111;
     max-width: 500px;
 }
 
