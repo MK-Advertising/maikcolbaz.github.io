@@ -1,17 +1,18 @@
-/* SISTEMA DE COLOR & TIPOGRAFÍA */
+/* ==========================================
+   SISTEMA DE COLOR & TIPOGRAFÍA 
+   ========================================== */
 :root {
-    --bg-color: #FDFDFD; /* Warm Off White */
-    --text-primary: #111111; /* Soft Charcoal Black */
-    --text-secondary: #6E6A66; /* Warm Gray */
-    --accent-navy: #1D2630;
-    --accent-red: #6E1F1F;
+    --bg-color: #FDFDFD; /* Warm Off White [cite: 160, 162] */
+    --text-primary: #111111; /* Soft Charcoal Black [cite: 163, 165] */
+    --text-secondary: #6E6A66; /* Warm Gray [cite: 169, 171] */
+    --accent-navy: #1D2630; /* Cinematic Navy [cite: 176, 178] */
+    --accent-red: #6E1F1F; /* Deep Editorial Red [cite: 179, 184] */
     
-    /* Nota: Se usa un fallback de sans-serif limpia. 
-       Para usar Neue Montreal, deberás subir los archivos de la fuente a tu repositorio GitHub. */
-    --font-primary: 'Neue Montreal', Helvetica, Arial, sans-serif; 
-    --font-mono: 'IBM Plex Mono', monospace;
+    /* Configuración tipográfica premium [cite: 192, 197] */
+    --font-primary: 'Neue Montreal', Helvetica, Arial, sans-serif; [cite: 198]
+    --font-mono: 'IBM Plex Mono', monospace; [cite: 24]
     
-    --section-padding: 140px;
+    --section-padding: 140px; [cite: 354]
 }
 
 * {
@@ -28,44 +29,47 @@ body {
     overflow-x: hidden;
 }
 
-/* TIPOGRAFÍA & JERARQUÍA */
+/* ==========================================
+   TIPOGRAFÍA & JERARQUÍA [cite: 22]
+   ========================================== */
 .hero-title {
-    font-size: clamp(64px, 9vw, 140px);
-    font-weight: 500;
-    line-height: 0.95;
-    letter-spacing: -0.06em;
+    font-size: clamp(64px, 9vw, 140px); [cite: 208]
+    font-weight: 500; [cite: 209]
+    line-height: 0.95; [cite: 210]
+    letter-spacing: -0.06em; [cite: 211]
 }
 
 .section-title {
-    font-size: clamp(32px, 5vw, 72px);
-    font-weight: 500;
-    letter-spacing: -0.04em;
+    font-size: clamp(32px, 5vw, 72px); [cite: 213]
+    font-weight: 500; [cite: 214]
+    letter-spacing: -0.04em; [cite: 215]
 }
 
 .body-text {
-    font-size: 16px;
-    line-height: 1.7;
-    font-weight: 400;
+    font-size: 16px; [cite: 217]
+    line-height: 1.7; [cite: 218]
+    font-weight: 400; [cite: 219]
     color: var(--text-secondary);
 }
 
 .micro-text, .mono-text {
     font-family: var(--font-mono);
-    font-size: 12px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    font-size: 12px; [cite: 221]
+    letter-spacing: 0.08em; [cite: 222]
+    text-transform: uppercase; [cite: 223]
     color: var(--text-secondary);
 }
 
-/* NAVBAR */
+/* ==========================================
+   BARRA DE NAVEGACIÓN (DESKTOP)
+   ========================================== */
 .navbar {
     position: fixed;
     top: 0;
     width: 100%;
-    padding: 32px 48px;
-    z-index: 100;
-    mix-blend-mode: difference;
-    color: #FDFDFD;
+    padding: 32px 48px; [cite: 345]
+    z-index: 999; /* Máxima jerarquía para evitar bloqueos de clics en pantalla */
+    color: var(--text-primary); /* Color sólido para legibilidad sobre fondo asimétrico */
     transition: padding 0.4s ease;
 }
 
@@ -73,7 +77,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1600px;
+    max-width: 1600px; [cite: 344]
     margin: 0 auto;
 }
 
@@ -95,17 +99,24 @@ body {
 }
 
 .nav-links a:hover {
-    color: var(--accent-red);
+    color: var(--accent-red); [cite: 181]
 }
 
-/* GRID SYSTEM */
+/* Ocultar botón de menú en computadoras de forma nativa */
+.menu-toggle {
+    display: none;
+}
+
+/* ==========================================
+   SISTEMA DE LAYOUT GRID [cite: 47, 339]
+   ========================================== */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
+    grid-template-columns: repeat(12, 1fr); [cite: 343]
     gap: 24px;
-    max-width: 1600px;
+    max-width: 1600px; [cite: 344]
     margin: 0 auto;
-    padding-inline: 48px;
+    padding-inline: 48px; [cite: 345]
 }
 
 .grid-col-left {
@@ -117,12 +128,14 @@ body {
     padding-top: 20px;
 }
 
-/* HERO SECTION */
+/* ==========================================
+   BLOQUES DEL HERO SECTION
+   ========================================== */
 .hero {
     height: 100vh;
     display: flex;
     align-items: center;
-    padding-inline: 48px;
+    padding-inline: 48px; [cite: 345]
     position: relative;
     overflow: hidden;
 }
@@ -137,8 +150,7 @@ body {
     margin-top: 32px;
     font-size: 18px;
     line-height: 1.5;
-    mix-blend-mode: difference;
-    color: #111111;
+    color: var(--text-secondary);
     max-width: 500px;
 }
 
@@ -158,26 +170,27 @@ body {
     object-fit: cover;
     object-position: center center;
     opacity: 1;
-    filter: grayscale(20%) contrast(110%);
+    filter: grayscale(20%) contrast(110%); /* Color grading cinematográfico [cite: 33, 291] */
 }
 
-/* SECTIONS ESPACIADO */
+/* ==========================================
+   SECTIONS ESPACIADO & MOTION SYSTEM [cite: 51, 52]
+   ========================================== */
 .editorial-section, .selected-works {
-    padding-top: var(--section-padding);
-    padding-bottom: var(--section-padding);
+    padding-top: var(--section-padding); [cite: 354]
+    padding-bottom: var(--section-padding); [cite: 354]
 }
 
 .container {
-    max-width: 1600px;
+    max-width: 1600px; [cite: 344]
     margin: 0 auto;
-    padding-inline: 48px;
+    padding-inline: 48px; [cite: 345]
 }
 
-/* ANIMACIONES (MOTION SYSTEM) */
 .cinematic-fade {
     opacity: 0;
     transform: translateY(30px);
-    transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1); 
 }
 
 .cinematic-fade.visible {
@@ -185,17 +198,19 @@ body {
     transform: translateY(0);
 }
 
-/* FOOTER */
+/* ==========================================
+   FOOTER MINIMALISTA
+   ========================================== */
 .footer {
     padding: 80px 48px;
-    border-top: 1px solid #E6E1DA; /* Soft Beige */
+    border-top: 1px solid #E6E1DA; /* Soft Beige [cite: 172, 174] */
 }
 
 .footer-container {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    max-width: 1600px;
+    max-width: 1600px; [cite: 344]
     margin: 0 auto;
 }
 
@@ -208,52 +223,43 @@ body {
     text-align: right;
 }
 
-/* MOBILE RESPONSIVE (4 columns) */
+/* ==========================================
+   MOBILE RESPONSIVE (4 COLUMNS) [cite: 49, 75]
+   ========================================== */
 @media (max-width: 768px) {
     .grid-container {
-        grid-template-columns: repeat(4, 1fr);
-        padding-inline: 20px;
+        grid-template-columns: repeat(4, 1fr); [cite: 348]
+        padding-inline: 20px; [cite: 349]
     }
+    
     .grid-col-left, .grid-col-right {
         grid-column: 1 / -1;
     }
+    
     .hero, .container, .footer {
-        padding-inline: 20px;
+        padding-inline: 20px; [cite: 349]
     }
+    
     .hero-background {
         width: 100%;
         opacity: 0.35;
         filter: grayscale(5%) contrast(115%) brightness(95%);
         transition: opacity 0.5s ease;
     }
+    
     .navbar {
-        padding: 20px;
+        padding: 20px; [cite: 349]
         mix-blend-mode: normal;
         color: var(--text-primary);
     }
+
+    /* ==========================================
+       NUEVO MENÚ MÓVIL INTERACTIVO (ANIMADO) [cite: 77, 419]
+       ========================================== */
+    
+    /* Configuración base del contenedor oculto */
     .nav-links {
-        display: none; /* Oculta los links de escritorio en móvil */
-    }
-
-    /* === NUEVOS ESTILOS PARA EL MENÚ INTERACTIVO === */
-
-    /* Estilo minimalista para el botón [ Menu ] */
-    .menu-toggle {
-        display: block;
-        background: none;
-        border: none;
-        color: var(--text-primary); /* Usa tu Soft Charcoal Black */
-        font-family: 'IBM Plex Mono', monospace; /* Tipografía para labels */
-        font-size: 14px;
-        text-transform: uppercase;
-        cursor: pointer;
-        letter-spacing: 0.08em;
-        z-index: 101; /* Asegura que quede por encima de la imagen */
-    }
-
-    /* Pantalla completa que se despliega al abrir el menú */
-    .navbar.menu-active .nav-links {
-        display: flex;
+        display: flex; 
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -262,29 +268,75 @@ body {
         left: 0;
         width: 100vw;
         height: 100vh;
-        background: #FDFDFD; /* Tu fondo Warm Off White */
+        background: #FDFDFD; /* Fondo Warm Off White [cite: 160, 162] */
+        gap: 40px; [cite: 351]
+        
+        /* ESTADO INICIAL ANIMACIÓN: Oculto y sutilmente desplazado hacia arriba [cite: 365, 373] */
+        opacity: 0;
+        pointer-events: none; 
+        transform: translateY(-20px);
+        
+        /* Curva de desaceleración cinemática premium [cite: 358, 359] */
+        transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+                    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         z-index: 100;
-        gap: 40px; /* Espaciado generoso entre links */
     }
 
-    /* Estilo editorial para los links dentro del menú abierto */
-    .navbar.menu-active .nav-links a {
-        font-size: 32px; /* Tipografía oversized e impactante */
+    /* Revelado del botón [ Menu ] */
+    .menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        color: var(--text-primary); 
+        font-family: var(--font-mono); 
+        font-size: 14px;
+        text-transform: uppercase;
+        cursor: pointer;
+        letter-spacing: 0.08em;
+        z-index: 1000; /* Asegura que flote por encima de la cortina al abrirse */
+    }
+
+    /* ESTADO ACTIVO: Entrada inmersiva del menú [cite: 420] */
+    .navbar.menu-active .nav-links {
+        opacity: 1;
+        pointer-events: auto; 
+        transform: translateY(0);
+    }
+
+    /* Estilo editorial y micro-animación para los enlaces internos [cite: 328, 367] */
+    .nav-links a {
+        font-size: 32px; /* Tipografía oversized [cite: 327] */
         font-weight: 500;
         text-decoration: none;
         color: var(--text-primary);
         letter-spacing: -0.04em;
-        transition: color 0.3s ease;
+        margin-left: 0 !important; /* Resetea el margen de desktop */
+        
+        /* Efecto de retraso (fade-reveal) para ritmo visual [cite: 331, 367] */
+        opacity: 0;
+        transform: translateY(15px);
+        transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+                    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+                    color 0.3s ease;
+    }
+
+    /* Disparador del retraso secuencial cuando el contenedor padre se activa [cite: 331] */
+    .navbar.menu-active .nav-links a {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0.2s; /* Espera a que baje la cortina para mostrar el texto [cite: 361] */
     }
 
     .navbar.menu-active .nav-links a:hover {
-        color: var(--accent-red); /* Hover sutil en tu rojo editorial */
-    }
-} /* <--- Este es el cierre del @media de la línea 237 */
-/* Ocultar el botón de menú en pantallas de escritorio */
-@media (min-width: 769px) {
-    .menu-toggle {
-        display: none;
+        color: var(--accent-red); [cite: 181]
     }
 }
+
+/* ==========================================
+   RESPONSIVE ESCRITORIO CONTROL
+   ========================================== */
+@media (min-width: 769px) {
+    .menu-toggle {
+        display: none !important;
+    }
 }
