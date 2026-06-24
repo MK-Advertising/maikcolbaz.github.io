@@ -1,145 +1,174 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maikcol Baz</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Serif de Alta Gama & Sans Limpia -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maikcol Baz (: </title>
 
-    <style>
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #FAF8F5; /* Tono lino/arena premium */
-            color: #1C1B19; /* Carbón suave */
-            transition: background-color 0.6s ease, color 0.6s ease;
-        }
-        
-        /* Tipografía Editorial Serif */
-        .editorial-serif {
-            font-family: 'Cormorant Garamond', serif;
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-        /* Animación suave de entrada */
-        .fade-in-load {
-            animation: fadeIn 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Hover de línea editorial */
-        .editorial-link {
-            position: relative;
-        }
-        .editorial-link::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            transform: scaleX(0);
-            height: 1px;
-            bottom: -2px;
-            left: 0;
-            background-color: currentColor;
-            transform-origin: bottom right;
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .editorial-link:hover::after {
-            transform: scaleX(1);
-            transform-origin: bottom left;
-        }
-
-        /* Estilos Modo Oscuro Editorial */
-        .dark-mode {
-            background-color: #121212 !important;
-            color: #E5E3DF !important;
-        }
-        .dark-mode .border-editorial {
-            border-color: rgba(229, 227, 223, 0.1) !important;
-        }
-    </style>
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/animations.css">
 </head>
-<body class="min-h-screen flex flex-col justify-between p-8 sm:p-12 md:p-16 relative">
+<body>
 
-    <!-- Líneas decorativas de cuadrícula sutiles (Estilo Editorial) -->
-    <div class="absolute inset-0 grid grid-cols-4 pointer-events-none opacity-20 z-0">
-        <div class="border-r border-stone-300 border-editorial h-full"></div>
-        <div class="border-r border-stone-300 border-editorial h-full"></div>
-        <div class="border-r border-stone-300 border-editorial h-full"></div>
-        <div></div>
+<header class="navbar" id="navbar">
+
+<nav class="nav-links">
+<a href="#work">Work</a>
+<a href="#lab">Lab</a>
+<a href="#journal">Journal</a>
+<a href="#about">About</a>
+</nav>
+
+<button class="menu-toggle" aria-label="Abrir menú">
+<span></span>
+<span></span>
+</button>
+
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+<nav>
+<a href="#work">Work</a>
+<a href="#lab">Lab</a>
+<a href="#journal">Journal</a>
+<a href="#about">About</a>
+</nav>
+</div>
+
+<section class="hero">
+
+<div class="hero-video">
+<video autoplay muted loop playsinline>
+<source src="assets/video/hero.mp4" type="video/mp4">
+</video>
+<div class="overlay"></div>
+</div>
+
+<div class="hero-content">
+
+<p class="eyebrow reveal">
+:) 
+</p>
+
+<h1 class="hero-title reveal">
+MAIKCOL BAZ
+</h1>
+
+<h2 class="hero-subtitle reveal">
+Entre diseño,<br>
+cultura y tecnología.
+</h2>
+
+<a href="#work" class="hero-cta reveal">
+Desliza hacia abajo ↓
+</a>
+
+</div>
+
+</section>
+
+<section class="selected-work" id="work">
+
+    <div class="section-heading">
+        <p class="section-label">Selected Work</p>
     </div>
 
-    <!-- Encabezado / Branding -->
-    <header class="w-full flex justify-between items-baseline relative z-10 fade-in-load" style="animation-delay: 0.1s;">
-        <div>
-            <span class="text-xs uppercase tracking-[0.25em] font-semibold">Maikcol Baz</span>
-        </div>
-        <div class="flex items-center gap-6">
-            <!-- Selector de modo oscuro ultra minimalista -->
-            <button onclick="toggleDarkMode()" id="themeBtn" class="text-[10px] uppercase tracking-[0.2em] opacity-60 hover:opacity-100 transition-opacity focus:outline-none">
-                Black :)
-            </button>
-            <span class="text-xs opacity-40 hidden sm:inline">— 2026</span>
-        </div>
-    </header>
+    <div class="work-grid">
 
-    <!-- Contenido Principal: El Mensaje Centrado/Asimétrico -->
-    <main class="my-auto max-w-4xl relative z-10 py-12 md:py-24 fade-in-load" style="animation-delay: 0.3s;">
-        <div class="space-y-4">
-            <!-- Pequeña etiqueta de estado -->
-            <div class="flex items-center gap-2 mb-6 opacity-60">
-               
-                <span class="text-[10px] uppercase tracking-[0.2em] font-medium">:) :) :)</span>
+        <a href="#" class="project project-large reveal">
+            <div class="project-image">
+                <img src="https://i.pinimg.com/736x/d4/34/ae/d434ae0fdfa34c668e5da17838699baf.jpg" alt="FYMA Brand Transformation">
             </div>
-            
-            <!-- Mensaje Editorial Solicitado -->
-            <h1 class="editorial-serif text-3xl sm:text-5xl md:text-6xl font-light leading-[1.25] tracking-tight">
-                Estoy reconstruyendo mi sitio web espérame tantito para que puedas ver todo en lo que estoy trabajando :)</span>
-            </h1>
-        </div>
-    </main>
 
-    <!-- Pie de página / Redes y links minimalistas -->
-    <footer class="w-full pt-8 border-t border-stone-200 border-editorial flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 relative z-10 text-[10px] uppercase tracking-[0.2em] opacity-60 fade-in-load" style="animation-delay: 0.5s;">
-        <div>
-            <span>MAIKCOL BAZ :)  | todos los derechos reservados</span>
-        </div>
-        <div class="flex flex-wrap gap-x-8 gap-y-2">
-            <a href="https://www.instagram.com/maikcolbaz/" target="_blank" class="editorial-link transition-colors duration-300">Instagram</a>
-            <a href="https://www.linkedin.com/in/maikcol" target="_blank" class="editorial-link transition-colors duration-300">LinkedIn</a>
-          <a href="https://pinterest.com/maikcolbaz/" target="_blank" class="editorial-link transition-colors duration-300">Pinterest</a>
-        </div>
-    </footer>
+            <div class="project-content">
+                <span class="project-category">
+                    Brand Strategy
+                </span>
 
-    <!-- Script Minimalista para cambiar a Modo Oscuro/Claro -->
-    <script>
-        function toggleDarkMode() {
-            const body = document.body;
-            const themeBtn = document.getElementById('themeBtn');
-            const statusDot = document.getElementById('statusDot');
-            
-            body.classList.toggle('dark-mode');
-            
-            if (body.classList.contains('dark-mode')) {
-                themeBtn.innerText = 'White';
-                statusDot.style.backgroundColor = '#E5E3DF';
-            } else {
-                themeBtn.innerText = 'Black';
-                statusDot.style.backgroundColor = '#1C1B19';
-            }
-        }
-    </script>
+                <h3>
+                    FYMA Brand Transformation
+                </h3>
+
+                <p>
+                    Rebranding y posicionamiento estratégico para una empresa especializada en videovigilancia.
+                </p>
+            </div>
+        </a>
+
+        <a href="#" class="project project-small reveal">
+            <div class="project-image">
+                <img src="https://i.pinimg.com/736x/5a/57/65/5a5765c7ae740413530ee450790d78a7.jpg" alt="El Pambolero">
+            </div>
+
+            <div class="project-content">
+                <span class="project-category">
+                    Sports Media
+                </span>
+
+                <h3>
+                    El Pambolero
+                </h3>
+
+                <p>
+                    Plataforma editorial enfocada en fútbol y cultura deportiva.
+                </p>
+            </div>
+        </a>
+
+        <a href="#" class="project project-small reveal">
+            <div class="project-image">
+                <img src="https://i.pinimg.com/736x/10/70/dd/1070dd2944a30c1b73121124052aeba9.jpg" alt="FYMA Growth">
+            </div>
+
+            <div class="project-content">
+                <span class="project-category">
+                    Growth Marketing
+                </span>
+
+                <h3>
+                    FYMA Customer Acquisition
+                </h3>
+
+                <p>
+                    Sistema de adquisición de clientes mediante campañas digitales.
+                </p>
+            </div>
+        </a>
+
+        <a href="#" class="project project-large right reveal">
+            <div class="project-image">
+                <img src="https://i.pinimg.com/736x/4d/e3/d7/4de3d7b7ae6aec1c46ae46d574440682.jpg" alt="Huvytas Campaign Work">
+            </div>
+
+            <div class="project-content">
+                <span class="project-category">
+                    Advertising
+                </span>
+
+                <h3>
+                    Huvytas Campaign Work
+                </h3>
+
+                <p>
+                    Estrategia, creatividad y medios para diferentes marcas y campañas.
+                </p>
+            </div>
+        </a>
+
+    </div>
+
+</section>  
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<script src="js/main.js"></script>
+<script src="js/animations.js"></script>
+
 </body>
 </html>
